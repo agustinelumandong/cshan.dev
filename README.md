@@ -1,21 +1,80 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 👾 cshan.dev
 
-# Run and deploy your AI Studio app
+A minimalist portfolio website showcasing my work as a Full Stack Developer, built with modern web technologies.
 
-This contains everything you need to run your app locally.
+## 🚀 Live Demo
 
-View your app in AI Studio: https://ai.studio/apps/182f9131-1667-42dc-90fd-c152cc06c50b
+Visit the live site: [cshan.dev](https://cshan.dev) *(Update with your actual domain)*
 
-## Run Locally
+## 💻 Tech Stack
 
-**Prerequisites:**  Node.js
+- **Framework:** React + Vite
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
 
+## ✨ Features
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
-# cshan.dev
+- 📱 Fully responsive design optimized for all devices
+- 🎨 Clean, minimalist interface with serif typography
+- ✨ Smooth animations and hover effects
+- 🖼️ Project preview on hover (desktop)
+- 📄 Print-friendly layout for PDF generation
+- 🎯 SEO optimized
+
+## 🛠️ Projects Showcase
+
+- **Casey Nash Western Author** - Custom character booking platform with video testimonials
+- **Dusty Saddle Publishing** - Full-stack e-commerce platform for Western literature
+- **Santo Tomas DavNor RAS** - Educational registration system built with TALL stack
+
+## 🏃 Run Locally
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/agustinelumandong/portfolio.git
+cd portfolio
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and visit `http://localhost:5173`
+
+## 📦 Build for Production
+
+```bash
+npm run build
+```
+
+The optimized files will be in the `dist` directory.
+
+## 📧 Contact
+
+- **Email:** sean.esparagoza@gmail.com
+- **LinkedIn:** [seanagustine](https://www.linkedin.com/in/seanagustine/)
+- **GitHub:** [agustinelumandong](https://github.com/agustinelumandong)
+- **Location:** Philippines
+
+## 📄 License
+
+© 2026 Sean Agustine L. Esparagoza. All rights reserved.
+
+---
+
+**Built with ❤️ by Sean Esparagoza**
