@@ -276,7 +276,7 @@ export default function App() {
             </div>
             <div>
               <span className="font-bold block mb-1">Frameworks & Libraries</span>
-              <p>React.js, Next.js, Node.js, Laravel, Livewire, Alpine.js, Tailwind CSS, Prisma ORM, Framer Motion</p>
+              <p>React.js, Next.js, Node.js, Astro, Laravel, Livewire, Alpine.js, Tailwind CSS, Prisma ORM, Framer Motion, Zustand, Zod, TanStack Query, Axios</p>
             </div>
             <div>
               <span className="font-bold block mb-1">Database & Backend</span>
