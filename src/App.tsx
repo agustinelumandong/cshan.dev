@@ -81,6 +81,24 @@ const PROJECTS: Project[] = [
     previewUrl: '/images/santo-tomas-web.png',
     githubUrl: 'https://github.com/agustinelumandong',
     liveUrl: 'https://santotomasdavnor-ras.com/'
+  },
+  {
+    id: 'proj-4',
+    title: 'Cold Brew Coffee Co.',
+    tech: 'Next.js, React, TypeScript, Tailwind CSS',
+    description: 'A modern brutalist-inspired website for a cold brew coffee shop featuring an 18-hour patience philosophy. Includes menu showcase with signature brews and café items, testimonial carousel, archived collections, and integrated GrabFood ordering. Built with sophisticated animations and a unique design aesthetic celebrating minimalism and precision.',
+    previewUrl: '/images/cold-brew-coffee-web.png',
+    githubUrl: 'https://github.com/agustinelumandong',
+    liveUrl: 'https://cold-brew-coffee.vercel.app/'
+  },
+  {
+    id: 'proj-5',
+    title: 'Gospel Bible Baptist Church',
+    tech: 'React, Tailwind CSS, Google Maps API',
+    description: 'A church website featuring service information, ministry programs, and community engagement tools. Includes interactive sections for Biblical Truth, Authentic Community, Global Missions, and Next Generation programs. Features embedded Google Maps for location services, gallery showcase of church events, and contact integration via Messenger for easy communication.',
+    previewUrl: '/images/gospel-bible-baptist-church-web.png',
+    githubUrl: 'https://github.com/agustinelumandong',
+    liveUrl: 'https://gospel-bible-baptist-church.vercel.app/'
   }
 ];
 
