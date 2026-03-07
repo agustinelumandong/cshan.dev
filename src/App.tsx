@@ -60,7 +60,7 @@ const PROJECTS: Project[] = [
     title: 'Casey Nash Western Author',
     tech: 'Next.js, React, TypeScript, Tailwind CSS, Prisma, PostgreSQL',
     description: 'A custom character booking platform where customers become characters in Western novels. Features multi-tier package system, video testimony uploads with cloud processing, dynamic book library with infinite scroll, testimonial moderation system, and admin dashboard with real-time analytics.',
-    previewUrl: 'public/images/casey-nash-web.png',
+    previewUrl: '/images/casey-nash-web.png',
     githubUrl: 'https://github.com/agustinelumandong',
     liveUrl: 'https://www.caseynashwesternauthor.com/'
   },
@@ -69,7 +69,7 @@ const PROJECTS: Project[] = [
     title: 'Dusty Saddle Publishing',
     tech: 'Next.js, React.js, Tailwind CSS, Prisma ORM, JavaScript',
     description: 'Full-stack e-commerce publishing platform specializing in Western literature and books. A modern web application for selling books, managing inventory, processing orders, and engaging with customers through multimedia content like book trailers. Built with responsive design for optimal user experience across all devices.',
-    previewUrl: 'public/images/dsp-web.png',
+    previewUrl: '/images/dsp-web.png',
     githubUrl: 'https://github.com/agustinelumandong',
     liveUrl: 'https://dusty-saddle-publishing.vercel.app/'
   },
@@ -78,7 +78,7 @@ const PROJECTS: Project[] = [
     title: 'SantoTomasDavNor - RAS',
     tech: 'Laravel, PHP, Livewire, Alpine.js, Tailwind CSS (TALL Stack)',
     description: 'Registration and admission system for educational institution built with the TALL stack (Tailwind, Alpine.js, Livewire, Laravel). Features student enrollment management, document processing, real-time application tracking, and administrative dashboard for processing registrations. Built with responsive design ensuring accessibility across desktop and mobile devices.',
-    previewUrl: 'public/images/santo-tomas-web.png',
+    previewUrl: '/images/santo-tomas-web.png',
     githubUrl: 'https://github.com/agustinelumandong',
     liveUrl: 'https://santotomasdavnor-ras.com/'
   }
