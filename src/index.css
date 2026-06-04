@@ -8,8 +8,8 @@
 
 :root {
   color-scheme: light;
-  --bg: #ffffff;
-  --surface: #ffffff;
+  --bg: #E5E4E4;
+  --surface: #E5E4E4;
   --surface-muted: #f3f4f6;
   --text: #000000;
   --text-soft: #1f2937;
@@ -22,8 +22,8 @@
 
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --bg: #0b0d0f;
-  --surface: #14171a;
+  --bg: #030307;
+  --surface: #030307;
   --surface-muted: #1d2227;
   --text: #f8fafc;
   --text-soft: #e5e7eb;
@@ -36,6 +36,7 @@
 
 body {
   background: var(--bg);
+  transition: background-color 500ms ease-in-out;
 }
 
 @media print {

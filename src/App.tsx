@@ -23,14 +23,14 @@ export default function App() {
   }, [theme]);
 
   return (
-    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)] font-serif selection:bg-[var(--text)] selection:text-[var(--bg)] pb-20 transition-colors duration-300">
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)] font-serif selection:bg-[var(--text)] selection:text-[var(--bg)] pb-20 transition-colors duration-500 ease-in-out">
       <ThemeToggle
         theme={theme}
         onToggle={() => setTheme((currentTheme) => currentTheme === 'dark' ? 'light' : 'dark')}
       />
 
       <main className="max-w-3xl mx-auto px-6 py-16 sm:py-24 relative">
-        <Header />
+        <Header theme={theme} />
         <ExperienceSection experience={EXPERIENCE} />
         <ProjectsSection projects={PROJECTS} />
         <SkillsSection skills={SKILLS} />
