@@ -6,6 +6,38 @@
   --font-serif: "Merriweather", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-muted: #f3f4f6;
+  --text: #000000;
+  --text-soft: #1f2937;
+  --body: #374151;
+  --muted: #6b7280;
+  --subtle: #9ca3af;
+  --border: #f3f4f6;
+  --border-strong: #000000;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0b0d0f;
+  --surface: #14171a;
+  --surface-muted: #1d2227;
+  --text: #f8fafc;
+  --text-soft: #e5e7eb;
+  --body: #cbd5e1;
+  --muted: #94a3b8;
+  --subtle: #64748b;
+  --border: #1f2937;
+  --border-strong: #f8fafc;
+}
+
+body {
+  background: var(--bg);
+}
+
 @media print {
   .no-print {
     display: none !important;

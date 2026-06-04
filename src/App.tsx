@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ExternalLink, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import { ExternalLink, Github, Linkedin, Mail, MapPin, Moon, Sun } from 'lucide-react';
 
 // Types
 interface Experience {
@@ -22,6 +22,8 @@ interface Project {
   githubUrl: string;
   liveUrl?: string;
 }
+
+type Theme = 'light' | 'dark';
 
 // Data
 const EXPERIENCE: Experience[] = [
@@ -126,11 +128,11 @@ const HoverPreview = ({
           animate={{ opacity: 1, x: 0, scale: 1 }}
           exit={{ opacity: 0, x: -10, scale: 0.95 }}
           transition={{ duration: 0.2 }}
-          className="absolute z-50 top-0 left-full ml-4 w-64 bg-white border border-gray-200 shadow-2xl rounded-lg overflow-hidden hidden xl:block"
+          className="absolute z-50 top-0 left-full ml-4 w-64 bg-[var(--surface)] border border-[var(--border)] shadow-2xl rounded-lg overflow-hidden hidden xl:block"
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
         >
-          <div className="aspect-video w-full bg-gray-100 relative overflow-hidden">
+          <div className="aspect-video w-full bg-[var(--surface-muted)] relative overflow-hidden">
             <img
               src={imageUrl}
               alt={title}
@@ -143,7 +145,7 @@ const HoverPreview = ({
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="block p-3 bg-black text-white text-xs text-center font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
+              className="block p-3 bg-[var(--text)] text-[var(--bg)] text-xs text-center font-medium hover:opacity-85 transition-opacity flex items-center justify-center gap-2"
             >
               <span>View Project</span>
               <ExternalLink size={12} />
@@ -157,7 +159,17 @@ const HoverPreview = ({
 
 export default function App() {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [theme, setTheme] = useState<Theme>(() => {
+    const savedTheme = window.localStorage.getItem('theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
   const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem('theme', theme);
+  }, [theme]);
 
   const handleMouseEnter = (id: string) => {
     if (hoverTimeout.current) {
@@ -175,23 +187,31 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-black font-serif selection:bg-black selection:text-white pb-20">
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)] font-serif selection:bg-[var(--text)] selection:text-[var(--bg)] pb-20 transition-colors duration-300">
+      <button
+        type="button"
+        aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        onClick={() => setTheme((currentTheme) => currentTheme === 'dark' ? 'light' : 'dark')}
+        className="fixed right-4 top-4 sm:right-6 sm:top-6 z-50 inline-flex size-10 items-center justify-center rounded-full border border-[var(--border-strong)] bg-[var(--bg)] text-[var(--text)] shadow-sm transition-colors hover:bg-[var(--surface-muted)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text)] no-print"
+      >
+        {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+      </button>
       <main className="max-w-3xl mx-auto px-6 py-16 sm:py-24 relative">
 
         {/* Header */}
         <header className="mb-16 text-center sm:text-left">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">Sean Agustine L. Esparagoza</h1>
-          <div className="flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2 text-sm font-sans text-gray-600">
+          <div className="flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2 text-sm font-sans text-[var(--muted)]">
             <span className="flex items-center gap-1">
               <MapPin size={14} /> Philippines
             </span>
-            <a href="mailto:sean.esparagoza@gmail.com" className="flex items-center gap-1 hover:text-black transition-colors">
+            <a href="mailto:sean.esparagoza@gmail.com" className="flex items-center gap-1 hover:text-[var(--text)] transition-colors">
               <Mail size={14} /> sean.esparagoza@gmail.com
             </a>
-            <a href="https://www.linkedin.com/in/seanagustine/" className="flex items-center gap-1 hover:text-black transition-colors">
+            <a href="https://www.linkedin.com/in/seanagustine/" className="flex items-center gap-1 hover:text-[var(--text)] transition-colors">
               <Linkedin size={14} /> LinkedIn
             </a>
-            <a href="https://github.com/agustinelumandong" className="flex items-center gap-1 hover:text-black transition-colors">
+            <a href="https://github.com/agustinelumandong" className="flex items-center gap-1 hover:text-[var(--text)] transition-colors">
               <Github size={14} /> GitHub
             </a>
           </div>
@@ -199,19 +219,19 @@ export default function App() {
 
         {/* Experience Section */}
         <section className="mb-16">
-          <h2 className="text-xl font-bold uppercase tracking-wider border-b-2 border-black pb-2 mb-8">Work Experience</h2>
+          <h2 className="text-xl font-bold uppercase tracking-wider border-b-2 border-[var(--border-strong)] pb-2 mb-8">Work Experience</h2>
           <div className="space-y-12">
             {EXPERIENCE.map((job) => (
               <div key={job.id} className="group">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
                   <h3 className="text-xl font-bold">{job.company}</h3>
-                  <span className="font-sans text-sm font-medium text-gray-500">{job.period}</span>
+                  <span className="font-sans text-sm font-medium text-[var(--muted)]">{job.period}</span>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-4">
-                  <span className="font-serif italic text-lg text-gray-800">{job.role}</span>
-                  <span className="font-sans text-sm text-gray-500">{job.location}</span>
+                  <span className="font-serif italic text-lg text-[var(--text-soft)]">{job.role}</span>
+                  <span className="font-sans text-sm text-[var(--muted)]">{job.location}</span>
                 </div>
-                <ul className="list-disc list-outside ml-5 space-y-2 text-gray-700 leading-relaxed mb-3">
+                <ul className="list-disc list-outside ml-5 space-y-2 text-[var(--body)] leading-relaxed mb-3">
                   {job.description.map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
@@ -224,7 +244,7 @@ export default function App() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-sans text-gray-400 hover:text-black transition-colors italic hover:translate-x-1 duration-200"
+              className="inline-flex items-center gap-1 text-sm font-sans text-[var(--subtle)] hover:text-[var(--text)] transition-colors italic hover:translate-x-1 duration-200"
             >
               ...see more on LinkedIn <ExternalLink size={12} />
             </a>
@@ -233,7 +253,7 @@ export default function App() {
 
         {/* Projects Section */}
         <section className="mb-16">
-          <h2 className="text-xl font-bold uppercase tracking-wider border-b-2 border-black pb-2 mb-8">Selected Projects</h2>
+          <h2 className="text-xl font-bold uppercase tracking-wider border-b-2 border-[var(--border-strong)] pb-2 mb-8">Selected Projects</h2>
           <div className="space-y-10">
             {PROJECTS.map((project) => (
               <div
@@ -263,10 +283,10 @@ export default function App() {
                       onMouseLeave={handleMouseLeave}
                     />
                   </div>
-                  <span className="font-sans text-sm italic text-gray-500">{project.tech}</span>
+                  <span className="font-sans text-sm italic text-[var(--muted)]">{project.tech}</span>
                 </div>
 
-                <p className="text-gray-700 leading-relaxed mb-3">
+                <p className="text-[var(--body)] leading-relaxed mb-3">
                   {project.description}
                 </p>
               </div>
@@ -277,7 +297,7 @@ export default function App() {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-sans text-gray-400 hover:text-black transition-colors italic hover:translate-x-1 duration-200"
+              className="inline-flex items-center gap-1 text-sm font-sans text-[var(--subtle)] hover:text-[var(--text)] transition-colors italic hover:translate-x-1 duration-200"
             >
               ...see more on GitHub <ExternalLink size={12} />
             </a>
@@ -286,8 +306,8 @@ export default function App() {
 
         {/* Skills Section */}
         <section className="mb-16">
-          <h2 className="text-xl font-bold uppercase tracking-wider border-b-2 border-black pb-2 mb-6">Technical Skills</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-gray-700">
+          <h2 className="text-xl font-bold uppercase tracking-wider border-b-2 border-[var(--border-strong)] pb-2 mb-6">Technical Skills</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-[var(--body)]">
             <div>
               <span className="font-bold block mb-1">Languages</span>
               <p>JavaScript (ES6+), TypeScript, HTML5, CSS3/SCSS, SQL, PHP, Python</p>
@@ -317,32 +337,32 @@ export default function App() {
 
         {/* Education Section */}
         <section>
-          <h2 className="text-xl font-bold uppercase tracking-wider border-b-2 border-black pb-2 mb-6">Education</h2>
+          <h2 className="text-xl font-bold uppercase tracking-wider border-b-2 border-[var(--border-strong)] pb-2 mb-6">Education</h2>
           <div>
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
               <h3 className="text-lg font-bold">Davao Del Norte State College</h3>
-              <span className="font-sans text-sm font-medium text-gray-500">Aug 2024 – Present</span>
+              <span className="font-sans text-sm font-medium text-[var(--muted)]">Aug 2024 – Present</span>
             </div>
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
-              <span className="font-serif italic text-gray-800">Bachelor of Information Technology</span>
-              <span className="font-sans text-sm text-gray-500">Panabo City, Davao del Norte</span>
+              <span className="font-serif italic text-[var(--text-soft)]">Bachelor of Information Technology</span>
+              <span className="font-sans text-sm text-[var(--muted)]">Panabo City, Davao del Norte</span>
             </div>
           </div>
         </section>
 
-        <section className="mt-12 text-center border-t border-gray-100 pt-8 no-print">
-          <p className="text-gray-400 text-sm italic mb-4">
+        <section className="mt-12 text-center border-t border-[var(--border)] pt-8 no-print">
+          <p className="text-[var(--subtle)] text-sm italic mb-4">
             This portfolio is designed to be printed or saved as a clean PDF.
           </p>
           <a
             href="mailto:sean.esparagoza@gmail.com"
-            className="inline-block px-6 py-2 border border-black text-black font-bold text-sm rounded-full hover:bg-black hover:text-white transition-colors"
+            className="inline-block px-6 py-2 border border-[var(--border-strong)] text-[var(--text)] font-bold text-sm rounded-full hover:bg-[var(--text)] hover:text-[var(--bg)] transition-colors"
           >
             Contact Me
           </a>
         </section>
 
-        <footer className="mt-12 pt-8 border-t border-gray-100 text-center text-sm font-sans text-gray-400">
+        <footer className="mt-12 pt-8 border-t border-[var(--border)] text-center text-sm font-sans text-[var(--subtle)]">
           <p>© {new Date().getFullYear()} Sean Agustine Esparagoza. </p>
         </footer>
 
