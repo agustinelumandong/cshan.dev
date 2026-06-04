@@ -31,12 +31,12 @@ const EXPERIENCE: Experience[] = [
     id: 'exp-1',
     role: 'Full Stack Developer',
     company: 'Freelance',
-    period: 'May. 2025 – Present',
+    period: 'May. 2025 – Jun. 2026',
     location: '(Remote)',
     description: [
-      'Specialized in full-stack web development using modern technologies including React.js, Next.js, Node.js, and PostgreSQL.',
+      'Specialized in full-stack web development using modern technologies including React.js, Next.js, Node.js, Laravel, and PostgreSQL.',
       'Built responsive web applications with Tailwind CSS, ensuring cross-device compatibility and optimal user experience.',
-      'Tech Stack: JavaScript, TypeScript, HTML5, CSS, React.js, Next.js, Node.js, Tailwind CSS, Prisma ORM, PostgreSQL.'
+      'Tech Stack: JavaScript, TypeScript, HTML5, CSS, React.js, Next.js, Node.js, Laravel, Livewire, Alpine.js, Tailwind CSS, Prisma ORM, PostgreSQL.'
     ],
     linkedinUrl: 'https://www.linkedin.com/in/seanagustine/'
   },
@@ -50,7 +50,7 @@ const EXPERIENCE: Experience[] = [
       'Created custom website layouts using HTML and CSS. Designed responsive websites compatible with desktops and mobile devices.',
       'Assisted small businesses in building online presence through personal portfolio sites.',
       'Developed a full-stack e-commerce publishing platform specializing in Western literature and books - a modern web application for selling books, managing inventory, processing orders, and engaging with customers through multimedia content like book trailers.',
-      'Tech Stack: JavaScript, CSS, HTML5, Next.js, React.js, Tailwind CSS, Prisma ORM.'
+      'Tech Stack: JavaScript, CSS, HTML5, Next.js, React.js, Laravel, Livewire, Alpine.js, Tailwind CSS, Prisma ORM.'
     ],
     linkedinUrl: 'https://www.linkedin.com/in/seanagustine/'
   }
@@ -61,7 +61,7 @@ const PROJECTS: Project[] = [
     id: 'proj-1',
     title: 'Casey Nash Western Author',
     tech: 'Next.js, React, TypeScript, Tailwind CSS, Prisma, PostgreSQL',
-    description: 'A custom character booking platform where customers become characters in Western novels. Features multi-tier package system, video testimony uploads with cloud processing, dynamic book library with infinite scroll, testimonial moderation system, and admin dashboard with real-time analytics.',
+    description: 'A custom Western author platform with character bookings, book discovery, testimonials, and an admin dashboard.',
     previewUrl: '/images/casey-nash-web.png',
     githubUrl: 'https://github.com/agustinelumandong',
     liveUrl: 'https://www.caseynashwesternauthor.com/'
@@ -70,7 +70,7 @@ const PROJECTS: Project[] = [
     id: 'proj-2',
     title: 'Dusty Saddle Publishing',
     tech: 'Next.js, React.js, Tailwind CSS, Prisma ORM, JavaScript',
-    description: 'Full-stack e-commerce publishing platform specializing in Western literature and books. A modern web application for selling books, managing inventory, processing orders, and engaging with customers through multimedia content like book trailers. Built with responsive design for optimal user experience across all devices.',
+    description: 'A full-stack publishing store for selling Western books, managing inventory, processing orders, and showcasing multimedia content.',
     previewUrl: '/images/dsp-web.png',
     githubUrl: 'https://github.com/agustinelumandong',
     liveUrl: 'https://dusty-saddle-publishing.vercel.app/'
@@ -79,7 +79,7 @@ const PROJECTS: Project[] = [
     id: 'proj-3',
     title: 'SantoTomasDavNor - RAS',
     tech: 'Laravel, PHP, Livewire, Alpine.js, Tailwind CSS (TALL Stack)',
-    description: 'Registration and admission system for educational institution built with the TALL stack (Tailwind, Alpine.js, Livewire, Laravel). Features student enrollment management, document processing, real-time application tracking, and administrative dashboard for processing registrations. Built with responsive design ensuring accessibility across desktop and mobile devices.',
+    description: 'A responsive registration and admission system for managing student enrollment, document processing, and application tracking.',
     previewUrl: '/images/santo-tomas-web.png',
     githubUrl: 'https://github.com/agustinelumandong',
     liveUrl: 'https://santotomasdavnor-ras.com/'
@@ -88,7 +88,7 @@ const PROJECTS: Project[] = [
     id: 'proj-4',
     title: 'Cold Brew Coffee Co.',
     tech: 'Next.js, React, TypeScript, Tailwind CSS',
-    description: 'A modern brutalist-inspired website for a cold brew coffee shop featuring an 18-hour patience philosophy. Includes menu showcase with signature brews and café items, testimonial carousel, archived collections, and integrated GrabFood ordering. Built with sophisticated animations and a unique design aesthetic celebrating minimalism and precision.',
+    description: 'A brutalist-inspired coffee shop website with menu highlights, testimonials, archived collections, and GrabFood ordering.',
     previewUrl: '/images/cold-brew-coffee-web.png',
     githubUrl: 'https://github.com/agustinelumandong',
     liveUrl: 'https://cold-brew-coffee.vercel.app/'
@@ -97,7 +97,7 @@ const PROJECTS: Project[] = [
     id: 'proj-5',
     title: 'Gospel Bible Baptist Church',
     tech: 'React, Tailwind CSS, Google Maps API',
-    description: 'A church website featuring service information, ministry programs, and community engagement tools. Includes interactive sections for Biblical Truth, Authentic Community, Global Missions, and Next Generation programs. Features embedded Google Maps for location services, gallery showcase of church events, and contact integration via Messenger for easy communication.',
+    description: 'A church website for service information, ministry programs, event galleries, location details, and Messenger contact.',
     previewUrl: '/images/gospel-bible-baptist-church-web.png',
     githubUrl: 'https://github.com/agustinelumandong',
     liveUrl: 'https://gospel-bible-baptist-church.vercel.app/'
@@ -128,7 +128,7 @@ const HoverPreview = ({
           animate={{ opacity: 1, x: 0, scale: 1 }}
           exit={{ opacity: 0, x: -10, scale: 0.95 }}
           transition={{ duration: 0.2 }}
-          className="absolute z-50 top-0 left-full ml-4 w-64 bg-[var(--surface)] border border-[var(--border)] shadow-2xl rounded-lg overflow-hidden hidden xl:block"
+          className="absolute z-50 top-0 right-full mr-4 w-64 bg-[var(--surface)] border border-[var(--border)] shadow-2xl rounded-lg overflow-hidden hidden xl:block"
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
         >
@@ -199,8 +199,14 @@ export default function App() {
       <main className="max-w-3xl mx-auto px-6 py-16 sm:py-24 relative">
 
         {/* Header */}
-        <header className="mb-16 text-center sm:text-left">
+        <header className="mb-8 text-center sm:text-left">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">Sean Agustine L. Esparagoza</h1>
+          {/* Description Section */}
+          <section className="mb-4">
+            <p className="text-sm text--(body) leading-relaxed">
+              I'm a college student and passionate software engineer & UI/UX designer, still learning. I love collaborating with AI tools to enhance my workflow, conducting research, and exploring new technologies to build scalable web applications with intuitive user experiences.
+            </p>
+          </section>
           <div className="flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2 text-sm font-sans text-[var(--muted)]">
             <span className="flex items-center gap-1">
               <MapPin size={14} /> Philippines
@@ -216,6 +222,8 @@ export default function App() {
             </a>
           </div>
         </header>
+
+
 
         {/* Experience Section */}
         <section className="mb-16">
