@@ -31,7 +31,7 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
       </div>
       <div className="mt-6">
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/seanagustine/"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 text-sm font-sans text-[var(--subtle)] hover:text-[var(--text)] transition-colors italic hover:translate-x-1 duration-200"

@@ -42,22 +42,16 @@ export function Header({ theme }: HeaderProps) {
           </a>
         </div>
       </div>
-      <div
-        aria-label="Profile photo"
-        className="relative size-36 shrink-0 overflow-hidden bg-[var(--surface-muted)] sm:size-40"
-      >
+      <picture className="size-36 shrink-0 overflow-hidden bg-[var(--surface-muted)] sm:size-40">
+        <source media="print" srcSet="/images/my-profile-light-1.webp" />
         <img
-          src="/images/my-profile-light-1.png"
+          src={theme === "light" ? "/images/my-profile-light-1.webp" : "/images/my-profile-dark.webp"}
           alt="Sean Agustine L. Esparagoza"
-          className={`absolute inset-0 size-full object-cover transition-opacity duration-500 ease-in-out ${theme === "light" ? "opacity-100" : "opacity-0"}`}
+          className="size-full object-cover"
+          width="160"
+          height="160"
         />
-        <img
-          src="/images/my-profile-dark.png"
-          alt=""
-          aria-hidden="true"
-          className={`absolute inset-0 size-full object-cover transition-opacity duration-500 ease-in-out ${theme === "dark" ? "opacity-100" : "opacity-0"}`}
-        />
-      </div>
+      </picture>
     </header>
   );
 }

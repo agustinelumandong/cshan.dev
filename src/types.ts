@@ -14,8 +14,7 @@ export interface Project {
   tech: string;
   description: string;
   previewUrl: string;
-  githubUrl: string;
-  liveUrl?: string;
+  liveUrl: string;
 }
 
 export interface SkillGroup {

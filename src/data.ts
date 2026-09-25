@@ -8,9 +8,8 @@ export const EXPERIENCE: Experience[] = [
     period: 'May. 2025 – Jun. 2026',
     location: '(Remote)',
     description: [
-      'Specialized in full-stack web development using modern technologies including React.js, Next.js, Node.js, Laravel, and PostgreSQL.',
-      'Built responsive web applications with Tailwind CSS, ensuring cross-device compatibility and optimal user experience.',
-      'Tech Stack: JavaScript, TypeScript, HTML5, CSS, React.js, Next.js, Node.js, Laravel, Livewire, Alpine.js, Tailwind CSS, Prisma ORM, PostgreSQL.'
+      'Built full-stack web applications with React, Next.js, Laravel, and PostgreSQL.',
+      'Used Tailwind CSS to adapt layouts for desktop and mobile devices.'
     ],
     linkedinUrl: 'https://www.linkedin.com/in/seanagustine/'
   },
@@ -21,10 +20,8 @@ export const EXPERIENCE: Experience[] = [
     period: 'Oct. 2025 – Feb. 2026',
     location: 'United States (Remote)',
     description: [
-      'Created custom website layouts using HTML and CSS. Designed responsive websites compatible with desktops and mobile devices.',
-      'Assisted small businesses in building online presence through personal portfolio sites.',
-      'Developed a full-stack e-commerce publishing platform specializing in Western literature and books - a modern web application for selling books, managing inventory, processing orders, and engaging with customers through multimedia content like book trailers.',
-      'Tech Stack: JavaScript, CSS, HTML5, Next.js, React.js, Laravel, Livewire, Alpine.js, Tailwind CSS, Prisma ORM.'
+      'Designed responsive website layouts for desktop and mobile devices.',
+      'Built a Western-book publishing store with inventory management, order processing, and book trailers.'
     ],
     linkedinUrl: 'https://www.linkedin.com/in/seanagustine/'
   }
@@ -36,8 +33,7 @@ export const PROJECTS: Project[] = [
     title: 'Casey Nash Western Author',
     tech: 'Next.js, React, TypeScript, Tailwind CSS, Prisma, PostgreSQL',
     description: 'A custom Western author platform with character bookings, book discovery, testimonials, and an admin dashboard.',
-    previewUrl: '/images/casey-nash-web.png',
-    githubUrl: 'https://github.com/agustinelumandong',
+    previewUrl: '/images/casey-nash-web-thumb.webp',
     liveUrl: 'https://www.caseynashwesternauthor.com/'
   },
   {
@@ -45,8 +41,7 @@ export const PROJECTS: Project[] = [
     title: 'Dusty Saddle Publishing',
     tech: 'Next.js, React.js, Tailwind CSS, Prisma ORM, JavaScript',
     description: 'A full-stack publishing store for selling Western books, managing inventory, processing orders, and showcasing multimedia content.',
-    previewUrl: '/images/dsp-web.png',
-    githubUrl: 'https://github.com/agustinelumandong',
+    previewUrl: '/images/dsp-web-thumb.webp',
     liveUrl: 'https://dusty-saddle-publishing.vercel.app/'
   },
   {
@@ -54,8 +49,7 @@ export const PROJECTS: Project[] = [
     title: 'SantoTomasDavNor - RAS',
     tech: 'Laravel, PHP, Livewire, Alpine.js, Tailwind CSS (TALL Stack)',
     description: 'A responsive registration and admission system for managing student enrollment, document processing, and application tracking.',
-    previewUrl: '/images/santo-tomas-web.png',
-    githubUrl: 'https://github.com/agustinelumandong',
+    previewUrl: '/images/santo-tomas-web-thumb.webp',
     liveUrl: 'https://santotomasdavnor-ras.com/'
   },
   {
@@ -63,8 +57,7 @@ export const PROJECTS: Project[] = [
     title: 'Cold Brew Coffee Co.',
     tech: 'Next.js, React, TypeScript, Tailwind CSS',
     description: 'A brutalist-inspired coffee shop website with menu highlights, testimonials, archived collections, and GrabFood ordering.',
-    previewUrl: '/images/cold-brew-coffee-web.png',
-    githubUrl: 'https://github.com/agustinelumandong',
+    previewUrl: '/images/cold-brew-coffee-web-thumb.webp',
     liveUrl: 'https://cold-brew-coffee.vercel.app/'
   },
   {
@@ -72,8 +65,7 @@ export const PROJECTS: Project[] = [
     title: 'Gospel Bible Baptist Church',
     tech: 'React, Tailwind CSS, Google Maps API',
     description: 'A church website for service information, ministry programs, event galleries, location details, and Messenger contact.',
-    previewUrl: '/images/gospel-bible-baptist-church-web.png',
-    githubUrl: 'https://github.com/agustinelumandong',
+    previewUrl: '/images/gospel-bible-baptist-church-web-thumb.webp',
     liveUrl: 'https://gospel-bible-baptist-church.vercel.app/'
   }
 ];

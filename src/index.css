@@ -14,8 +14,8 @@
   --text: #000000;
   --text-soft: #1f2937;
   --body: #374151;
-  --muted: #6b7280;
-  --subtle: #9ca3af;
+  --muted: #565b64;
+  --subtle: #5f646b;
   --border: #f3f4f6;
   --border-strong: #000000;
 }
@@ -40,12 +40,50 @@ body {
 }
 
 @media print {
+  :root,
+  :root[data-theme='dark'] {
+    color-scheme: light;
+    --bg: #fff;
+    --surface: #fff;
+    --surface-muted: #fff;
+    --text: #000;
+    --text-soft: #000;
+    --body: #000;
+    --muted: #333;
+    --subtle: #333;
+    --border: #ccc;
+    --border-strong: #000;
+  }
   .no-print {
     display: none !important;
   }
   body {
     background: white;
     color: black;
+  }
+  main {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: 0.9rem;
+  }
+  main > section {
+    margin-bottom: 1rem !important;
+  }
+  main > header {
+    margin-bottom: 1rem !important;
+  }
+  main > section h2 {
+    margin-bottom: 1rem !important;
+  }
+  main > section > .space-y-12 > :not(:last-child),
+  main > section > .space-y-10 > :not(:last-child) {
+    margin-block-end: 1rem !important;
+  }
+  main > section .grid {
+    row-gap: 0.5rem !important;
+  }
+  article {
+    break-inside: avoid;
   }
   a {
     text-decoration: none;
