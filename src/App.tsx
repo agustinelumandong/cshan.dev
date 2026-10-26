@@ -36,9 +36,9 @@ export default function App() {
       <a
         href="#main-content"
         aria-label="Back to top"
-        className="fixed bottom-16 right-4 sm:bottom-20 sm:right-6 z-50 inline-flex h-10 items-center justify-center gap-1 rounded-full border border-[var(--border-strong)] bg-[var(--bg)] px-3 text-sm font-bold text-[var(--text)] shadow-sm transition-colors hover:bg-[var(--surface-muted)] no-print"
+        className="fixed bottom-16 right-4 sm:bottom-20 sm:right-6 z-50 inline-flex size-10 items-center justify-center rounded-full border border-[var(--border-strong)] bg-[var(--bg)] text-[var(--text)] shadow-sm transition-colors hover:bg-[var(--surface-muted)] no-print"
       >
-        <ArrowUp size={16} aria-hidden="true" /> Up
+        <ArrowUp size={16} aria-hidden="true" />
       </a>
       <ThemeToggle
         theme={theme}
