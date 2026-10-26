@@ -15,7 +15,7 @@ export function ContactCta() {
       <button
         type="button"
         onClick={() => window.print()}
-        className="mx-auto mt-4 block px-4 py-2 text-sm font-sans text-[var(--muted)] underline underline-offset-4 hover:text-[var(--text)]"
+        className="mx-auto mt-4 block cursor-pointer px-6 py-2 border border-[var(--border-strong)] text-[var(--text)] font-bold text-sm rounded-full hover:bg-[var(--text)] hover:text-[var(--bg)] transition-colors"
       >
         Print / Save PDF
       </button>
