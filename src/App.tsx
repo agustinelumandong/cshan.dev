@@ -40,7 +40,7 @@ export default function App() {
       <a className="skip-link no-print" href="#main-content">Skip to content</a>
       <main id="main-content" tabIndex={-1} className="max-w-3xl mx-auto px-6 py-16 sm:py-24 relative">
         <Header theme={theme} />
-        <nav aria-label="CV sections" className="mb-12 flex flex-wrap gap-x-5 gap-y-1 border-y border-[var(--border-strong)] py-2 font-sans text-sm no-print">
+        <nav aria-label="CV sections" className="mb-12 flex flex-wrap justify-between gap-x-6 gap-y-2 border-y border-[var(--border-strong)] py-2 font-sans text-sm no-print">
           <a className="py-2 hover:underline underline-offset-4" href="#experience">Experience</a>
           <a className="py-2 hover:underline underline-offset-4" href="#projects">Projects</a>
           <a className="py-2 hover:underline underline-offset-4" href="#skills">Skills</a>
