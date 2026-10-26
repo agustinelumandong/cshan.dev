@@ -8,7 +8,7 @@ interface ExperienceSectionProps {
 
 export function ExperienceSection({ experience }: ExperienceSectionProps) {
   return (
-    <section className="mb-16">
+    <section id="experience" aria-label="Work Experience" className="mb-16">
       <SectionHeading>Work Experience</SectionHeading>
       <div className="space-y-12">
         {experience.map((job) => (
@@ -36,7 +36,7 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 text-sm font-sans text-[var(--subtle)] hover:text-[var(--text)] transition-colors italic hover:translate-x-1 duration-200"
         >
-          ...see more on LinkedIn <ExternalLink size={12} />
+          More on LinkedIn <ExternalLink size={12} aria-hidden="true" />
         </a>
       </div>
     </section>

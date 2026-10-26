@@ -8,7 +8,7 @@ interface ProjectsSectionProps {
 
 export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
-    <section className="mb-16">
+    <section id="projects" aria-label="Selected Projects" className="mb-16">
       <SectionHeading>Selected Projects</SectionHeading>
       <div className="space-y-10">
         {projects.map((project) => (
@@ -18,7 +18,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-24 sm:w-32 shrink-0 no-print"
+                className="project-preview block w-24 sm:w-32 shrink-0 overflow-hidden no-print"
                 aria-label={`View ${project.title}`}
               >
                 <img
@@ -26,6 +26,8 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                   alt=""
                   loading="lazy"
                   decoding="async"
+                  width="320"
+                  height="240"
                   className="w-full aspect-[4/3] object-cover object-top"
                 />
               </a>
@@ -52,7 +54,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 text-sm font-sans text-[var(--subtle)] hover:text-[var(--text)] transition-colors italic hover:translate-x-1 duration-200"
         >
-          ...see more on GitHub <ExternalLink size={12} />
+          More on GitHub <ExternalLink size={12} aria-hidden="true" />
         </a>
       </div>
     </section>

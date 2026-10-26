@@ -7,7 +7,7 @@ interface SkillsSectionProps {
 
 export function SkillsSection({ skills }: SkillsSectionProps) {
   return (
-    <section className="mb-16">
+    <section id="skills" aria-label="Technical Skills" className="mb-16">
       <SectionHeading className="mb-6">Technical Skills</SectionHeading>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-[var(--body)]">
         {skills.map((skill) => (

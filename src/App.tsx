@@ -12,14 +12,22 @@ import type { Theme } from './types';
 
 export default function App() {
   const [theme, setTheme] = useState<Theme>(() => {
-    const savedTheme = window.localStorage.getItem('theme');
-    if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+    try {
+      const savedTheme = window.localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+    } catch {
+      // Storage can be unavailable in private or restricted browsing.
+    }
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   });
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem('theme', theme);
+    try {
+      window.localStorage.setItem('theme', theme);
+    } catch {
+      // The selected theme still works for this visit without storage.
+    }
   }, [theme]);
 
   return (
@@ -29,8 +37,16 @@ export default function App() {
         onToggle={() => setTheme((currentTheme) => currentTheme === 'dark' ? 'light' : 'dark')}
       />
 
-      <main className="max-w-3xl mx-auto px-6 py-16 sm:py-24 relative">
+      <a className="skip-link no-print" href="#main-content">Skip to content</a>
+      <main id="main-content" tabIndex={-1} className="max-w-3xl mx-auto px-6 py-16 sm:py-24 relative">
         <Header theme={theme} />
+        <nav aria-label="CV sections" className="mb-12 flex flex-wrap gap-x-5 gap-y-1 border-y border-[var(--border-strong)] py-2 font-sans text-sm no-print">
+          <a className="py-2 hover:underline underline-offset-4" href="#experience">Experience</a>
+          <a className="py-2 hover:underline underline-offset-4" href="#projects">Projects</a>
+          <a className="py-2 hover:underline underline-offset-4" href="#skills">Skills</a>
+          <a className="py-2 hover:underline underline-offset-4" href="#education">Education</a>
+          <a className="py-2 hover:underline underline-offset-4" href="#contact">Contact</a>
+        </nav>
         <ExperienceSection experience={EXPERIENCE} />
         <ProjectsSection projects={PROJECTS} />
         <SkillsSection skills={SKILLS} />

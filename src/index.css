@@ -39,7 +39,66 @@ body {
   transition: background-color 500ms ease-in-out;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1.5rem;
+}
+
+section[id] {
+  scroll-margin-top: 1.5rem;
+}
+
+a, button {
+  touch-action: manipulation;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.profile-intro {
+  animation: arrive 450ms ease-out both;
+}
+
+@keyframes arrive {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.project-preview img {
+  transition: transform 200ms ease-out;
+}
+
+.project-preview:hover img, .project-preview:focus-visible img {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .project-preview:hover img, .project-preview:focus-visible img, a:hover { transform: none; }
+}
+
 @media print {
+  .profile-intro { animation: none; }
   :root,
   :root[data-theme='dark'] {
     color-scheme: light;
